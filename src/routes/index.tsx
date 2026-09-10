@@ -123,7 +123,7 @@ const SOZLUK = {
     yeniParolaLbl: "Yeni parola",
     yeniParolaTekrarLbl: "Yeni parola (tekrar)",
     degistir: "Değiştir",
-    iptal: "İptal",
+    iptal: "İptal et",
     kaydet: "Kaydet",
     kapat: "Kapat",
     sil: "Sil",
