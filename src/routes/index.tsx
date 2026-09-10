@@ -1347,23 +1347,25 @@ function ProfilDiyalog({
 
   return (
     <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader className="text-center">
-          <DialogTitle>{t("talebeProfili")}</DialogTitle>
-          <DialogDescription>{t("fotoVeKisisel")}</DialogDescription>
-        </DialogHeader>
+      <DialogContent className="flex max-h-[90vh] flex-col overflow-hidden p-0 sm:max-w-md">
+        <div className="flex-1 overflow-y-auto p-6">
+          <DialogHeader className="text-center">
+            <DialogTitle>{t("talebeProfili")}</DialogTitle>
+            <DialogDescription>{t("fotoVeKisisel")}</DialogDescription>
+          </DialogHeader>
 
         {hocaModu && (
           <div className="flex justify-end">
             <Button
-              size="sm"
+              size="icon"
               variant="destructive"
+              title={t("sil")}
               onClick={() => {
                 onSil();
                 onClose();
               }}
             >
-              <Trash2 className="h-4 w-4" /> {t("sil")}
+              <Trash2 className="h-4 w-4" />
             </Button>
           </div>
         )}
@@ -1530,7 +1532,9 @@ function ProfilDiyalog({
             />
           </div>
         </div>
+      </div>
 
+      <div className="border-t bg-background p-4 sm:p-6">
         <DialogFooter className="gap-2 sm:gap-2">
           <Button variant="outline" onClick={onClose}>
             {t("iptal")}
@@ -1549,7 +1553,8 @@ function ProfilDiyalog({
             </Button>
           )}
         </DialogFooter>
-      </DialogContent>
+      </div>
+    </DialogContent>
 
       {talebe.fotoUrl && (
         <Dialog open={fotoBuyuk} onOpenChange={(o) => !o && setFotoBuyuk(false)}>
