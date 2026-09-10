@@ -1532,7 +1532,9 @@ function ProfilDiyalog({
             />
           </div>
         </div>
+      </div>
 
+      <div className="border-t bg-background p-4 sm:p-6">
         <DialogFooter className="gap-2 sm:gap-2">
           <Button variant="outline" onClick={onClose}>
             {t("iptal")}
@@ -1551,7 +1553,8 @@ function ProfilDiyalog({
             </Button>
           )}
         </DialogFooter>
-      </DialogContent>
+      </div>
+    </DialogContent>
 
       {talebe.fotoUrl && (
         <Dialog open={fotoBuyuk} onOpenChange={(o) => !o && setFotoBuyuk(false)}>
