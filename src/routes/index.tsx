@@ -1331,6 +1331,7 @@ function ProfilDiyalog({
   const [fotoBuyuk, setFotoBuyuk] = useState(false);
   const [isimDuzenle, setIsimDuzenle] = useState(false);
   const [isimTaslak, setIsimTaslak] = useState("");
+  const [silOnayAcik, setSilOnayAcik] = useState(false);
 
   useEffect(() => {
     if (talebe) {
