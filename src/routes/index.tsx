@@ -1584,6 +1584,31 @@ function ProfilDiyalog({
         </Dialog>
       )}
     </Dialog>
+
+    <AlertDialog open={silOnayAcik} onOpenChange={setSilOnayAcik}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>{t("eminMisiniz")}</AlertDialogTitle>
+          <AlertDialogDescription>{t("silmeOnay")}</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel onClick={() => setSilOnayAcik(false)}>
+            {t("iptal")}
+          </AlertDialogCancel>
+          <AlertDialogAction
+            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            onClick={() => {
+              onSil();
+              onClose();
+              setSilOnayAcik(false);
+            }}
+          >
+            {t("evetSil")}
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  </>
   );
 }
 
