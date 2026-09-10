@@ -20,6 +20,16 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Label } from "@/components/ui/label";
 import AidatPanel from "@/components/AidatPanel";
 import {
@@ -127,6 +137,9 @@ const SOZLUK = {
     kaydet: "Kaydet",
     kapat: "Kapat",
     sil: "Sil",
+    eminMisiniz: "Emin misiniz?",
+    silmeOnay: "Bu talebe kalıcı olarak silinecek. İşlem geri alınamaz.",
+    evetSil: "Evet, sil",
     talebeEkle: "Talebe Ekle",
     haftaRaporu: "Haftanın Raporu",
     haftaninRaporu: "Haftanın Raporu",
