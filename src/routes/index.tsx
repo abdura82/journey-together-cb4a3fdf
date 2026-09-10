@@ -1353,6 +1353,21 @@ function ProfilDiyalog({
           <DialogDescription>{t("fotoVeKisisel")}</DialogDescription>
         </DialogHeader>
 
+        {hocaModu && (
+          <div className="flex justify-end">
+            <Button
+              size="sm"
+              variant="destructive"
+              onClick={() => {
+                onSil();
+                onClose();
+              }}
+            >
+              <Trash2 className="h-4 w-4" /> {t("sil")}
+            </Button>
+          </div>
+        )}
+
         <div className="flex flex-col items-center gap-3">
           <div className="relative h-[120px] w-[120px]">
             <button
