@@ -1347,11 +1347,12 @@ function ProfilDiyalog({
 
   return (
     <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="flex max-h-[90vh] flex-col overflow-hidden sm:max-w-md">
-        <DialogHeader className="text-center">
-          <DialogTitle>{t("talebeProfili")}</DialogTitle>
-          <DialogDescription>{t("fotoVeKisisel")}</DialogDescription>
-        </DialogHeader>
+      <DialogContent className="flex max-h-[90vh] flex-col overflow-hidden p-0 sm:max-w-md">
+        <div className="flex-1 overflow-y-auto p-6">
+          <DialogHeader className="text-center">
+            <DialogTitle>{t("talebeProfili")}</DialogTitle>
+            <DialogDescription>{t("fotoVeKisisel")}</DialogDescription>
+          </DialogHeader>
 
         {hocaModu && (
           <div className="flex justify-end">
