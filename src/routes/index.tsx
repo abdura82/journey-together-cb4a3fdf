@@ -1360,8 +1360,9 @@ function ProfilDiyalog({
   };
 
   return (
-    <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="flex max-h-[90vh] flex-col overflow-hidden p-0 sm:max-w-md">
+    <>
+      <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
+        <DialogContent className="flex max-h-[90vh] flex-col overflow-hidden p-0 sm:max-w-md">
         <div className="flex-1 overflow-y-auto p-6">
           <DialogHeader className="text-center">
             <DialogTitle>{t("talebeProfili")}</DialogTitle>
