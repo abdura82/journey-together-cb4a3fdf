@@ -1536,28 +1536,17 @@ function ProfilDiyalog({
             {t("iptal")}
           </Button>
           {hocaModu && (
-            <>
-              <Button
-                variant="destructive"
-                onClick={() => {
-                  onSil();
-                  onClose();
-                }}
-              >
-                <Trash2 className="h-4 w-4" /> {t("sil")}
-              </Button>
-              <Button
-                onClick={() => {
-                  onNotKaydet(talebe, {
-                    telefon: telefon.trim(),
-                    notlar: notlar.trim(),
-                  });
-                  onClose();
-                }}
-              >
-                {t("kaydet")}
-              </Button>
-            </>
+            <Button
+              onClick={() => {
+                onNotKaydet(talebe, {
+                  telefon: telefon.trim(),
+                  notlar: notlar.trim(),
+                });
+                onClose();
+              }}
+            >
+              {t("kaydet")}
+            </Button>
           )}
         </DialogFooter>
       </DialogContent>
