@@ -123,7 +123,7 @@ const SOZLUK = {
     yeniParolaLbl: "Yeni parola",
     yeniParolaTekrarLbl: "Yeni parola (tekrar)",
     degistir: "Değiştir",
-    iptal: "İptal",
+    iptal: "İptal et",
     kaydet: "Kaydet",
     kapat: "Kapat",
     sil: "Sil",
@@ -1353,6 +1353,21 @@ function ProfilDiyalog({
           <DialogDescription>{t("fotoVeKisisel")}</DialogDescription>
         </DialogHeader>
 
+        {hocaModu && (
+          <div className="flex justify-end">
+            <Button
+              size="sm"
+              variant="destructive"
+              onClick={() => {
+                onSil();
+                onClose();
+              }}
+            >
+              <Trash2 className="h-4 w-4" /> {t("sil")}
+            </Button>
+          </div>
+        )}
+
         <div className="flex flex-col items-center gap-3">
           <div className="relative h-[120px] w-[120px]">
             <button
@@ -1521,28 +1536,17 @@ function ProfilDiyalog({
             {t("iptal")}
           </Button>
           {hocaModu && (
-            <>
-              <Button
-                variant="destructive"
-                onClick={() => {
-                  onSil();
-                  onClose();
-                }}
-              >
-                <Trash2 className="h-4 w-4" /> {t("sil")}
-              </Button>
-              <Button
-                onClick={() => {
-                  onNotKaydet(talebe, {
-                    telefon: telefon.trim(),
-                    notlar: notlar.trim(),
-                  });
-                  onClose();
-                }}
-              >
-                {t("kaydet")}
-              </Button>
-            </>
+            <Button
+              onClick={() => {
+                onNotKaydet(talebe, {
+                  telefon: telefon.trim(),
+                  notlar: notlar.trim(),
+                });
+                onClose();
+              }}
+            >
+              {t("kaydet")}
+            </Button>
           )}
         </DialogFooter>
       </DialogContent>
