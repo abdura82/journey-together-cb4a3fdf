@@ -1374,10 +1374,7 @@ function ProfilDiyalog({
               size="icon"
               variant="destructive"
               title={t("sil")}
-              onClick={() => {
-                onSil();
-                onClose();
-              }}
+              onClick={() => setSilOnayAcik(true)}
             >
               <Trash2 className="h-4 w-4" />
             </Button>
