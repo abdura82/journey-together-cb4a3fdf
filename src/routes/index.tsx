@@ -1532,7 +1532,7 @@ function ProfilDiyalog({
         </div>
 
         <DialogFooter className="gap-2 sm:gap-2">
-          <Button variant="ghost" onClick={onClose}>
+          <Button variant="outline" onClick={onClose}>
             {t("iptal")}
           </Button>
           {hocaModu && (
