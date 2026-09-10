@@ -20,6 +20,16 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Label } from "@/components/ui/label";
 import AidatPanel from "@/components/AidatPanel";
 import {
@@ -127,6 +137,9 @@ const SOZLUK = {
     kaydet: "Kaydet",
     kapat: "Kapat",
     sil: "Sil",
+    eminMisiniz: "Emin misiniz?",
+    silmeOnay: "Bu talebe kalıcı olarak silinecek. İşlem geri alınamaz.",
+    evetSil: "Evet, sil",
     talebeEkle: "Talebe Ekle",
     haftaRaporu: "Haftanın Raporu",
     haftaninRaporu: "Haftanın Raporu",
@@ -1318,6 +1331,7 @@ function ProfilDiyalog({
   const [fotoBuyuk, setFotoBuyuk] = useState(false);
   const [isimDuzenle, setIsimDuzenle] = useState(false);
   const [isimTaslak, setIsimTaslak] = useState("");
+  const [silOnayAcik, setSilOnayAcik] = useState(false);
 
   useEffect(() => {
     if (talebe) {
@@ -1346,8 +1360,9 @@ function ProfilDiyalog({
   };
 
   return (
-    <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="flex max-h-[90vh] flex-col overflow-hidden p-0 sm:max-w-md">
+    <>
+      <Dialog open={!!talebe} onOpenChange={(o) => !o && onClose()}>
+        <DialogContent className="flex max-h-[90vh] flex-col overflow-hidden p-0 sm:max-w-md">
         <div className="flex-1 overflow-y-auto p-6">
           <DialogHeader className="text-center">
             <DialogTitle>{t("talebeProfili")}</DialogTitle>
@@ -1360,10 +1375,7 @@ function ProfilDiyalog({
               size="icon"
               variant="destructive"
               title={t("sil")}
-              onClick={() => {
-                onSil();
-                onClose();
-              }}
+              onClick={() => setSilOnayAcik(true)}
             >
               <Trash2 className="h-4 w-4" />
             </Button>
@@ -1572,6 +1584,31 @@ function ProfilDiyalog({
         </Dialog>
       )}
     </Dialog>
+
+    <AlertDialog open={silOnayAcik} onOpenChange={setSilOnayAcik}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>{t("eminMisiniz")}</AlertDialogTitle>
+          <AlertDialogDescription>{t("silmeOnay")}</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel onClick={() => setSilOnayAcik(false)}>
+            {t("iptal")}
+          </AlertDialogCancel>
+          <AlertDialogAction
+            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            onClick={() => {
+              onSil();
+              onClose();
+              setSilOnayAcik(false);
+            }}
+          >
+            {t("evetSil")}
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  </>
   );
 }
 
